@@ -34,6 +34,7 @@ async function analyzeAuthenticity() {
         
         const result = await response.json();
         
+<<<<<<< HEAD
         // Update UI with the analysis results
         if (analysisResults) {
             // Update authenticity score
@@ -72,6 +73,29 @@ async function analyzeAuthenticity() {
             
             // Show the results
             analysisResults.classList.remove('hidden');
+=======
+        // Update UI with the authenticity score
+        if (analysisResults) {
+            analysisResults.innerHTML = `
+                <div class="authenticity-score">
+                    <h3>Authenticity Score</h3>
+                    <div class="score-wrapper">
+                        <canvas id="score-chart" width="200" height="200"></canvas>
+                        <div class="score-number">${(result.score ?? 0).toFixed(1)}/10</div>
+                    </div>
+                </div>
+                <div class="analysis-details">
+                    <h3>Analysis Details</h3>
+                    <p>${result.explanation}</p>
+                </div>
+            `;
+            
+            // Show the results
+            analysisResults.classList.remove('hidden');
+            
+            // Update score chart
+            updateScoreChart(result.score);
+>>>>>>> 5ff459e (New features Added)
         }
     } catch (error) {
         console.error('Error:', error);
