@@ -6,17 +6,12 @@ from bs4 import BeautifulSoup
 import trafilatura
 from urllib.parse import urlparse
 from datetime import datetime
-<<<<<<< HEAD
-=======
 from flask_mail import Mail, Message
 
->>>>>>> 5ff459e (New features Added)
 
 # Create the Flask app
 app = Flask(__name__)
 
-<<<<<<< HEAD
-=======
 # Initialize Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -30,7 +25,6 @@ mail = Mail(app)
 
 
 
->>>>>>> 5ff459e (New features Added)
 # Google Custom Search setup
 API_KEY = "AIzaSyB2nlYuSgnoKLBKC4aF2nfF2drE3ZWIMNk"
 CSE_ID = "15c198a8769a045ec"
@@ -445,19 +439,6 @@ def contact():
 
 @app.route('/submit-contact', methods=['POST'])
 def submit_contact():
-<<<<<<< HEAD
-    try:
-        name = request.form.get('name')
-        email = request.form.get('email')
-        subject = request.form.get('subject')
-        message = request.form.get('message')
-        
-        # Here you would typically send an email or store the contact form data
-        # For now, we'll just return a success message
-        return jsonify({'success': True, 'message': 'Thank you for your message. We will get back to you soon!'})
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-=======
     print(request.json)  # Debugging: Check if JSON data is received
 
     try:
@@ -484,7 +465,6 @@ def submit_contact():
     except Exception as e:
         print(f"Error sending email: {str(e)}")
         return jsonify({'error': 'Failed to submit form'}), 500
->>>>>>> 5ff459e (New features Added)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000,debug=True)
