@@ -34,46 +34,6 @@ async function analyzeAuthenticity() {
         
         const result = await response.json();
         
-<<<<<<< HEAD
-        // Update UI with the analysis results
-        if (analysisResults) {
-            // Update authenticity score
-            const scoreElement = document.getElementById('authenticity-score');
-            if (scoreElement) {
-                scoreElement.textContent = result.authenticity_score;
-            }
-
-            // Update key findings
-            const findingsList = document.getElementById('key-findings-list');
-            if (findingsList) {
-                findingsList.innerHTML = result.key_findings
-                    .map(finding => `<li>${finding}</li>`)
-                    .join('');
-            }
-
-            // Update differences
-            const differencesList = document.getElementById('differences-list');
-            if (differencesList) {
-                differencesList.innerHTML = result.differences
-                    .map(diff => `<li>${diff}</li>`)
-                    .join('');
-            }
-
-            // Update supporting evidence
-            const evidenceList = document.getElementById('evidence-list');
-            if (evidenceList) {
-                evidenceList.innerHTML = result.supporting_evidence
-                    .map(evidence => `
-                        <li>
-                            <blockquote>${evidence.quote}</blockquote>
-                            <cite>- ${evidence.source}</cite>
-                        </li>
-                    `).join('');
-            }
-            
-            // Show the results
-            analysisResults.classList.remove('hidden');
-=======
         // Update UI with the authenticity score
         if (analysisResults) {
             analysisResults.innerHTML = `
@@ -95,7 +55,6 @@ async function analyzeAuthenticity() {
             
             // Update score chart
             updateScoreChart(result.score);
->>>>>>> 5ff459e (New features Added)
         }
     } catch (error) {
         console.error('Error:', error);
